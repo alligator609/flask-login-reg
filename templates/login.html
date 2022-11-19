@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN PAGE</title>
+
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+     <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    
+    <style>
+      body {
+        background-image: url('44.png');
+        }
+
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: rgb(201, 151, 175);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #2b91a8;
+}
+
+</style>
+</head>
+
+<body>
+  <div class="slideshow-container">
+
+    <p style="font-size:35px; text-align:center">ASSALAMUALAIKUM</p><hr>
+
+    <div class="mySlides ">
+      <img src="log.jpeg" style="width:100%"> 
+    </div>
+    
+    <div class="mySlides ">
+      <img src="aa.jpeg" style="width:100%">
+    </div>
+    
+    <div class="mySlides">
+      <img src="cc.jpeg" style="width:100%">
+    </div>
+  
+    <div class="mySlides ">
+      <img src="bb.jpeg" style="width:100%">
+    </div>
+    
+    </div>
+    <br>
+    
+    <div style="text-align:center">
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+      <span class="dot"></span>
+    </div>
+    
+    <script>
+    let slideIndex = 0;
+    showSlides();
+    
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+    </script>
+
+
+  <div class="container">
+        
+          <h2 style="text-align:center; color:rgb(94, 134, 147); font-size:50px;background-color:rgb(237, 248, 253);font-family: copperplate;">BE_ROYAL_EVER</h2>
+        <i>  <h4 style="text-align:center; font-size:25px;color:rgb(91, 104, 18);background-color:white;">Exclusive Shopping Platform</h4>
+
+  </div>
+
+
+  <div class="container">
+      <div class="card mt-8" style="text-align:center;">
+          <div class="card-body">
+            {% if error %}
+            <p class=error><strong>Error:</strong> {{ error }}
+          {% endif %}
+            <form class="form" method="post">
+                <b> <i style="text-align:center; color:rgb(112, 68, 62); font-size:40px;font-family: copperplate;">LOGIN</i><br><br>
+                  
+                  <input required type="text" placeholder="Username" class="form-control;" name="email" style="text-align:center; font-size:20px;"> <br><br>
+                  <input required type="password" placeholder="Password" class="form-control" name="password" style="text-align:center;  font-size:20px;"><br><br>
+                  <p class="text-light bg-info" style="text-align:center; font-size:15px;color:rgb(0, 0, 0);">Forgot your Password ? <a href="/crown.jpeg">Press here</a></p>
+                  <input type="submit"  value="Signin" style="text-align:center; background-color:rgb(165, 245, 226);  font-size:25px;">
+              </form>
+              <br>
+              <br>
+              <p class="mt-10"> Don't have an account? <a href="/registration.html">Register here please</a></p>
+              <p class="mt-10"><a href="/home.html">Back Home page</a></p>
+            </div>
+          </div>
+
+          </div>
+
+
+<script src="static/js/jQuery.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+
+</body>
+</html>
