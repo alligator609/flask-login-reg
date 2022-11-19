@@ -62,12 +62,15 @@ def registration():
         password = request.form.get('password')
         confirmpassword = request.form.get('confirmpassword')
 
-        cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO users(firstname, lastname, email, address, contactno, password) VALUES (%s, %s, %s, %s, %s, %s)", (firstname, lastname, email, address, contactno, password))
-        mysql.connection.commit()
-        cur.close()
-        return redirect('/login')
-
+        if password == confirmpassword:
+            cur = mysql.connection.cursor()
+            cur.execute("INSERT INTO users(firstname, lastname, email, address, contactno, password) VALUES (%s, %s, %s, %s, %s, %s)", (firstname, lastname, email, address, contactno, password))
+            mysql.connection.commit()
+            cur.close()
+            return redirect('/login')
+        else:
+            error = 'Password does not match!'
+            return render_template('registration.html', error=error)
 
 @app.route('/home')
 def home():

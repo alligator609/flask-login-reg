@@ -8,6 +8,10 @@
         {
           background-image: url('static/images/reg.jpeg');
         }
+        .error
+        {
+            color: red;
+        }
     </style>
 
 </head>
@@ -19,7 +23,9 @@
 
       <div class="card" style="text-align:center;">
           <div class="card-body">
-
+            {% if error %}
+            <p class=error><strong>Error:</strong> {{ error }}
+          {% endif %}
             <form class="form" method="post">
 
                 <input required type="text" placeholder="Firstname" class="form-control" name="firstname" style="text-align:center; font-size:20px;"><br><br>
